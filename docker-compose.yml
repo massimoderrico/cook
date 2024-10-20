@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  # cook-backend Service (NestJS + GraphQL)
+  backend-cook: 
+    build:
+      context: ./cook-backend
+      dockerfile: Dockerfile
+    container_name: cook-backend
+    restart: always
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://postgres:group18@postgres:5432/mydb?schema=public
+    volumes:
+      - ./cook-backend:/usr/src/app
+      - /usr/src/app/node_modules
+
+  # PostgreSQL Service
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: group18
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
