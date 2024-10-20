@@ -1,0 +1,6 @@
+[submodule "cook-backend"]
+	path = cook-backend
+	url = https://github.com/massimoderrico/cook-backend.git
+[submodule "cook-frontend"]
+	path = cook-frontend
+	url = https://github.com/massimoderrico/cook-frontend.git
