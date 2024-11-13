@@ -14,7 +14,7 @@ docker compose up
 
 ### View Database
 cd cook-backend  
-npx prisma migrate dev
+npx prisma migrate dev <br/>
 npx prisma studio
 
 ### View API testing page
