@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   # cook-backend Service (NestJS + GraphQL)
   backend-cook: 
@@ -12,10 +11,13 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=postgresql://postgres:group18@postgres:5432/mydb?schema=public
+      NODE_ENV: development
+      DATABASE_URL: "postgresql://postgres:group18@postgres:5432/mydb?schema=public"
     volumes:
-      - ./cook-backend:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./cook-backend:/app
+      - /app/node_modules
+    working_dir: /app
+    command: npm run start:dev
 
   # PostgreSQL Service
   postgres:
