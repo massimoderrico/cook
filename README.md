@@ -11,6 +11,7 @@ under cook-frontend directory<br/>
 
 ### Start the cook-backend container
 docker compose up 
+docker system prune -a
 
 ### View Database
 cd cook-backend  
