@@ -10,7 +10,7 @@ under cook-frontend directory<br/>
 -> create .env file containing API_URL=http://localhost:4000/graphql
 
 ### Start the cook-backend container
-docker compose up 
+docker compose up <br/>
 docker system prune -a
 
 ### View Database
